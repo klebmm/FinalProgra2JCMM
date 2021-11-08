@@ -1,0 +1,14 @@
+com\edu\umg\FinalProgra2\Tb_departamento.class
+com\edu\umg\FinalProgra2\Servicio\DepartamentoServiceImpl.class
+com\edu\umg\FinalProgra2\Dao\ProfesionDaoI.class
+com\edu\umg\FinalProgra2\Servicio\DepartamentoService.class
+com\edu\umg\FinalProgra2\Tb_usuario.class
+com\edu\umg\FinalProgra2\FinalProgra2Application.class
+com\edu\umg\FinalProgra2\Dao\UsuarioDaoI.class
+com\edu\umg\FinalProgra2\Servicio\UsuarioService.class
+com\edu\umg\FinalProgra2\Controller\ClsController.class
+com\edu\umg\FinalProgra2\Dao\DepartamentoDaoI.class
+com\edu\umg\FinalProgra2\Servicio\ProfesionService.class
+com\edu\umg\FinalProgra2\Servicio\ProfesionServiceImpl.class
+com\edu\umg\FinalProgra2\Servicio\UsuarioServiceImpl.class
+com\edu\umg\FinalProgra2\Tb_profesion.class

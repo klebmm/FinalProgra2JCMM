@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html  xmlns:th="https://www.thymeleaf.org">
+    <head>
+        <title>Update Profession</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <style>
+            body{background-color: slategrey; font-family: Arial Black; font-size: 20px; text-align: center;}
+            h1{color: red;}
+            p{font-size: 25px;}
+            label{color: black; font-family: Arial; display: block; margin-bottom: 10px; margin-top: 10px;}            
+            .linked{background: silver; color:black; font-family: Arial Black; padding: 3px 20px; border-radius: 4px; text-decoration:none; border-color: black; border: 2px;}
+            #return{margin-left: -1000px;}
+            input{font-size: 18px;  text-align: center;}
+            #btn{background-color: silver; color: black; font-family: Arial Black; margin-top: 20px; height: 35px; width: 125px; border: 2px;}
+            #O1{font-size: 12px; text-align: right;font-family: Arial; color: black};
+        </style>
+        
+            <h1 id="O1">MADE BY JAIME CALEB MOLINA MORAN</h1>
+            <a th:href="@{/}" class="linked" id="return">Regresar</a>
+            <h1> MODIFIACAR INFORMACION DE PROFESION </h1>
+        <br/> 
+        
+        <form  th:action="@{/guardar2}" method="post" th:object="${profesion}">
+            <input type="hidden" name="id_profesion"  th:field="*{id_profesion}"/>
+            <label for="descripcion_profesion"> INGRESE PROFESION:</label>
+            <input type="text" name="descripcion_profesion" th:field="*{descripcion_profesion}"/>
+            <br/>
+            <input type="submit" name="guardar2" value="Guardar" id="btn"/>
+        </form>
+    </body>
+</html>

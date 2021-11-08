@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns:th="https://www.thymeleaf.org">
+    <head>
+        <title>Examen Final - REFISTRO DE USUARIOS</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <style>
+            body{font-family: Arial; text-align:center; background-color: silver;}
+            h1{background-color: silver; font-size: 40px; text-align: center; color: red;}
+            table{background:gainsboro; font-size: 14px;}
+            .header{background-color: darkgrey; text-align: center}
+            .linked { font-family: Arial Black; padding: 3px 20px; background: slategrey; border: 1px solid #1161B0; color: snow;border-radius: 4px;text-decoration:none; border-color: black;}
+            #tblpro{height: 270px;margin-bottom: 15px;}
+            #op{background-color: white ; font-size: 20px; padding: 1.3px 17px;  }
+            #O1{ background-color: silver; font-size: 12px; text-align: right;font-family: Arial; color: black};
+            #O2{background-color: darkslategrey ; padding: 1px 12px;}           
+        </style>
+        <h1 id="O1">MADE BY JAIME CALEB MOLINA MORAN</h1>
+        <h1>REGISTRO DE USUARIOS </h1>
+        <ttl> TABLA GENERAL DE USUARIOS️️ </ttl> 
+            <table border="2" align = "center" >
+                <tr class="header">
+                    <th>ID USUARIO</th>
+                    <th>ID DEPARTAMENTO</th>
+                    <th>ID PROFESION</th>
+                    <th>NOMBRE</th>
+                    <th>APELLIDO</th>
+                    <th>E-MAIL</th>
+                    <th>TELEFONO</th>
+                    <th>NACIMIENTO</th>
+                    <th>LONGITUD</th>
+                    <th>LATITUD</th>
+                    <th>INGRESO</th>
+                    <th>UPDATE</th>
+                    <th>DELETE</th>
+                </tr>
+                <tr th:each="usu : ${usuario}">
+                    <td th:text="${usu.id_usuario}">Mostrar Usuario</td>
+                    <td th:text="${usu.id_depto}">Mostrar departamento</td>
+                    <td th:text="${usu.id_profesion}">Mostrar Profesion</td>
+                    <td th:text="${usu.nombre}">Mostrar Nombre</td>
+                    <td th:text="${usu.apellido}">Mostrar Apellido</td>
+                    <td th:text="${usu.correo_electronico}">Mostrar email</td>
+                    <td th:text="${usu.telefono}">Mostrar Teléfono</td>
+                    <td th:text="${usu.fecha_nacimiento}">Mostrar Fechanacimiento</td>
+                    <td th:text="${usu.longitud}">Mostrar longitud</td>
+                    <td th:text="${usu.latitud}">Mostrar latitud</td>
+                    <td th:text="${usu.fecha_registro}">Mostrar fechaingreso</td>
+                    <td><a th:href="@{/editar/} +  ${usu.id_usuario}" class="linked" id="O2">🔄️️</a></td>
+                    <td><a th:href="@{/eliminar/} +  ${usu.id_usuario}" class="linked" id="O2">🚫</a></td>
+                </tr>                 
+            </table> 
+        
+            <br/>
+            
+            <a th:href="@{/agregar}" class="linked" id="O2">REGISTRAR USUARIO</a>
+            <a th:href="@{/agregar2}" class="linked" id="O2">REGISTRAR PROFESION</a>
+            
+          <table border="2" align="center">
+                <p style="text-align: center"> |====================================================================|</p>
+                <p style="text-align: center"> TABLA GENERAL DE PROFESIONES</p>
+                <tr class="header">
+                    <th>CODIGO</th> 
+                    <th>PROFESIONES</th>
+                    <th>UPDATE</th>
+                    <th>DELETE</th>
+                </tr>
+                <tr th:each="pr : ${prof}">
+                    <td th:text="${pr.id_profesion}">Codigo Profesiones</td>
+                    <td th:text="${pr.descripcion_profesion}">Profesiones</td>
+                    <td><a th:href="@{/editar2/} + ${pr.id_profesion}" class="linked" id="O2">🔄</a></td>
+                    <td><a th:href="@{/eliminar2/} + ${pr.id_profesion}" class="linked" id="O2">🚫</a></td>
+                </tr>
+                
+                <table border="2" align="center">
+            <p style="text-align: center"> |====================================================================|</p>
+            <p style="text-align: center"> TABLA GENERAL DE DEPARTAMENTOS</p>
+                <tr class="header">
+                     <th>CODIGO</th> 
+                     <th>DEPARTAMENTOS</th>
+                </tr>
+                <tr th:each="lugar : ${dep}">
+                     <td th:text="${lugar.id_depto}">Codigo Departamento</td>
+                    <td th:text="${lugar.descripcion_depto}">Departamento</td>
+                </tr>
+          <br/>    
+    </body>   
+</html>

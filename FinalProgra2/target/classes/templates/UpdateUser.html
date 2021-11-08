@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html  xmlns:th="https://www.thymeleaf.org">
+    <head>
+        <title>Update User</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <style>
+            body{font-family: Arial Black; font-size: 20x; text-align: center; background-color: slategrey;}
+            h1{color: red;}
+            p{background-color: slategrey; font-size: 12px;}
+            label{color:black; font-family: Arial; display: block; margin-bottom: 8px; margin-top: 8px;}
+            .linked {background: silver; color:black; font-family: Arial Black; padding: 3px 20px; border-radius: 4px; text-decoration:none; border-color: black; border: 2px;}
+            #return {margin-left: -1000px;}
+            input{font-size: 17px;  text-align: center;}
+            select{background-color:silver;  font-family: Arial Black;  text-align: left; font-size: 16px; height: 30px; width: 200px;}
+            #btn{background-color: silver; color: black; font-family: Arial Black; margin-top: 15px; height: 40px; width: 120px; border: 1px solid #1161B0; cursor: pointer;}
+            #O1{font-size: 12px; text-align: right;font-family: Arial; color: black};
+        </style>
+        
+        <h1 id="O1">MADE BY JAIME CALEB MOLINA MORAN</h1>
+        <a th:href="@{/}" class="linked" id="return">Regresar</a>
+        <h1> MODIFICAR INFORMACION DEL USUARIO </h1>
+
+        <form  th:action="@{/guardar}" method="post" th:object="${usuario}">
+                      
+            <input type="hidden" name="id_usuario"  th:field="*{id_usuario}"/>
+            
+            <p style="text-align: center"> |=============================|</p><!-- ejemplo comentario -->
+            <label for="nombre"> Nombre del Usuario:</label>
+                <input type="text" name="nombre" th:field="*{nombre}"/>
+            <br/>
+            
+            <p style="text-align: center"> |=============================|</p>
+            <label for="apellido">Apellido del Usuario:</label>
+                <input type="text" name="apellido" th:field="*{apellido}"/>
+            <br/>
+            
+            <p style="text-align: center"> |=============================|</p>
+            <label for="id_depto">Departamento: </label>
+            <select th:field="*{id_depto}" name="id_depto" >
+                <option th:each="l : ${departamento}"
+                    th:value="${l.id_depto}"
+                    th:text="${l.id_depto} + ${separador} + ${l.descripcion_depto}"
+                ></option>
+            </select><br/>
+            
+            <p style="text-align: center"> |=============================|</p>
+            <label for="id_profesion">Profesion: </label>
+            <select th:field="*{id_profesion}" name="id_profesion">
+                <option th:each="l : ${profesiones}" 
+                    th:value="${l.id_profesion}" 
+                    th:text= "${l.id_profesion} + ${separador} + ${l.descripcion_profesion}"
+                ></option>
+            </select>
+            <br/> 
+            
+            <p style="text-align: center"> |=============================|</p>
+            <label for="correo_electronico">E-mail:</label>
+                <input type="email" name="correo_electronico" th:field="*{correo_electronico}"/>
+            <br/>
+            
+            <p style="text-align: center"> |=============================|</p>
+            <label for="telefono">Telefono:</label>
+                <input type="tel" name="telefono" th:field="*{telefono}"/>
+            <br/>
+            
+            <p style="text-align: center"> |=============================|</p>
+            <label for="fecha_nacimiento">Fecha de Nacimiento:</label>
+                <input type="text" name="fecha_nacimiento" th:field="*{fecha_nacimiento}"/>
+            <br/>
+            
+            <p style="text-align: center"> |=============================|</p>
+            <label for="longitud">Longitud:</label>
+                <input type="text" name="longitud" th:field="*{longitud}"/>
+            <br/>
+            
+            <p style="text-align: center"> |=============================|</p>
+            <label for="latitud">Latitud:</label>
+                <input type="text" name="latitud" th:field="*{latitud}"/>
+            <br/>
+           
+            <p style="text-align: center"> |=============================|</p>
+            <label for="fecha_registro">Fecha de Registro:</label>
+                <input type="text" name="fecha_registro" th:field="*{fecha_registro}"/>
+            <br/>
+            <p style="text-align: center"> |=============================|</p>
+            
+            <input type="submit" name="guardar" value="Guardar" id="btn"/>            
+        </form>
+    </body>
+</html>
